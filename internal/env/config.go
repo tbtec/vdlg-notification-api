@@ -12,19 +12,12 @@ import (
 type Config struct {
 	Env                string `env:"ENV" envDefault:"local"`
 	Port               int    `env:"PORT" envDefault:"8080"`
-	DbHost             string `env:"POSTGRES_HOST"`
-	DbUser             string `env:"POSTGRES_USER"`
-	DbPassword         string `env:"POSTGRES_PASS"`
-	DbName             string `env:"POSTGRES_DB"`
-	DbPort             int    `env:"POSTGRES_PORT"`
-	InputQueueUrl      string `env:"INPUT_QUEUE_URL"`
 	OutputQueueUrl     string `env:"OUTPUT_QUEUE_URL"`
 	AwsAccessKeyId     string `env:"AWS_ACCESS_KEY_ID"`
 	AwsSecretAccessKey string `env:"AWS_SECRET_ACCESS_KEY"`
 	AwsSessionToken    string `env:"AWS_SESSION_TOKEN"`
 	AwsRegion          string `env:"AWS_REGION"`
 	CustomerUrl        string `env:"CUSTOMER_URL" envDefault:"http://localhost:8081"`
-	S3BucketName       string `env:"S3_BUCKET_NAME"`
 	SMTPUser           string `env:"SMTP_USER"`
 	SMTPPass           string `env:"SMTP_PASS"`
 }

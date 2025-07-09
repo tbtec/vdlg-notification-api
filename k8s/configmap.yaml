@@ -1,18 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: tremligeiro-order-config
-  namespace: tremligeiro
+  name: vdlg-notification-config
+  namespace: vdlg
 data:
   ENV: "dev"
   PORT: "8080"
-  POSTGRES_DB: "tremligeiro_order_db"
-  POSTGRES_PORT: "5432"
-  POSTGRES_USER: "admintremligeiro"
-  POSTGRES_HOST: "tremligeiro-postgres-db-order.cdnilrkxgmpa.us-east-1.rds.amazonaws.com"
-  CUSTOMER_URL: "http://tremligeiro-customer.tremligeiro.svc.cluster.local:8080"
-  PRODUCT_URL: "http://tremligeiro-product.tremligeiro.svc.cluster.local:8080"
-  PAYMENT_URL: "http://tremligeiro-payment.tremligeiro.svc.cluster.local:8080"
-  ORDER_TOPIC_ARN: "arn:aws:sns:us-east-1:000047597454:OrderTopic"
-  PRODUCTION_ORDER_QUEUE_URL: "https://sqs.us-east-1.amazonaws.com/000047597454/ProductionQueueAppOrder" 
+  CUSTOMER_URL: "http://vdlg-customer.tremligeiro.svc.cluster.local:8080"
+  OUTPUT_QUEUE_URL: "https://sqs.us-east-1.amazonaws.com/000047597454/NotificationOutputQueue" 
   AWS_REGION: "us-east-1"
+  SMTP_USER: "trembaotecnologiasender@gmail.com"

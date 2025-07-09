@@ -1,16 +1,16 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: tremligeiro-order
-  namespace: tremligeiro
+  name: vdlg-notification
+  namespace: vdlg
   labels:
-    app: tremligeiro-order
+    app: vdlg-notification
     environment: "dev"
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: tremligeiro-order
+    name: vdlg-notification
   minReplicas: 1
   maxReplicas: 6
   metrics:

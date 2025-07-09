@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tremligeiro-order
-  namespace: tremligeiro
+  name: vdlg-notification
+  namespace: vdlg
 spec:
   selector:
     matchLabels:
-      app: tremligeiro-order     
+      app: vdlg-notification
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -17,14 +17,14 @@ spec:
       annotations:
         kubernetes.io/change-cause: "UPDATE"
       labels:
-        app: tremligeiro-order
+        app: vdlg-notification
         environment: "dev"
         version: "1.0.0"
     spec:
       automountServiceAccountToken: false
       containers:
-        - name: tremligeiro-order
-          image: tbtec/tremligeiro-order:1.0.0
+        - name: vdlg-notification
+          image: tbtec/vdlg-notification:1.0.0
           imagePullPolicy: Always
           ports:
             - name: http
@@ -41,9 +41,9 @@ spec:
             successThreshold: 1
           envFrom:
             - configMapRef:
-                name: tremligeiro-order-config
+                name: vdlg-notification-config
             - secretRef:
-                name: tremligeiro-order-secret
+                name: vdlg-notification-secret
           resources:
             requests:
               memory: "80Mi"
