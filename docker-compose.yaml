@@ -1,0 +1,35 @@
+services:
+    postgres:
+        container_name: 'postgres_vdlg'
+        image: postgres:17.0
+        ports:
+            - 5432:$POSTGRES_PORT
+        environment:
+            - POSTGRES_DB=$POSTGRES_DB
+            - POSTGRES_USER=$POSTGRES_USER
+            - POSTGRES_PASSWORD=$POSTGRES_PASS
+        volumes:
+            - pg_data:/var/lib/postgresql/data2
+        # restart: always
+    wiremock:
+        container_name: 'wiremock_vdlg'
+        image: wiremock/wiremock:3.9.2-1
+        ports:
+            - 8088:8080
+        volumes:
+            - ./docs/mocks:/home/wiremock
+        # restart: always   
+    localstack:
+        image: localstack/localstack:latest
+        ports:
+        - "4566:4566"            # LocalStack Gateway
+        - "4510-4559:4510-4559"  # external services port range
+        environment:
+        - DEBUG=0
+        - DEFAULT_REGION=us-east-1
+        - DOCKER_HOST=unix:///var/run/docker.sock
+        volumes:
+        - ./scripts/localstack/:/etc/localstack/init/ready.d/        
+
+volumes:
+    pg_data:

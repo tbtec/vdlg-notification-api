@@ -1,0 +1,12 @@
+{
+    "id": "0196c141-2d10-da79-4634-919bad8fe43a",
+    "name": "Lasanha",
+    "description": "Muito bom",
+    "amount": 1.52,
+    "category": {
+        "id": 1,
+        "name": "Lanche"
+    },
+    "createdAt": "2025-05-11T21:29:56.240911447Z",
+    "updatedAt": "2025-05-11T21:29:56.240911497Z"
+}

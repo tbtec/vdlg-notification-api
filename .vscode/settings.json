@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "tbtec",
+        "projectKey": "tbtec_vdlg-video-api"
+    }
+}

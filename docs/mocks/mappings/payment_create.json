@@ -1,0 +1,14 @@
+{
+    "request": {
+        "method": "POST",
+        "urlPathPattern": "/api/v1/payment"     
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "payment_create_res.json",
+        "headers": {
+            "Content-Type": "application/json; charset=utf-8",
+            "Server": "wiremock"
+        }
+    }
+}
