@@ -41,7 +41,7 @@ func (service *FileUploadService) GenerateUploadUrl(ctx context.Context, fileNam
 	}, s3.WithPresignExpires(expiration))
 
 	if err != nil {
-		slog.InfoContext(ctx, "Erro ao gerar URL pré-assinada: %v", err)
+		slog.InfoContext(ctx, "Erro ao gerar URL pré-assinada", slog.Any("err", err))
 		return "", fmt.Errorf("Erro ao gerar URL pré-assinada: %w", err)
 	}
 
@@ -62,7 +62,7 @@ func (service *FileUploadService) GenerateDownloadUrl(ctx context.Context, fileN
 	}, s3.WithPresignExpires(expiration))
 
 	if err != nil {
-		slog.InfoContext(ctx, "Erro ao gerar URL pré-assinada: %v", err)
+		slog.InfoContext(ctx, "Erro ao gerar URL pré-assinada", slog.Any("err", err))
 		return "", fmt.Errorf("Erro ao gerar URL pré-assinada: %w", err)
 	}
 	return req.URL, nil

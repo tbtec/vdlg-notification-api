@@ -37,7 +37,7 @@ func (eventServer *EventServer) ConsumeOutput(ctx context.Context) {
 	if message == nil {
 		// slog.InfoContext(ctx, "No messages available")
 	} else {
-		slog.InfoContext(ctx, "Received message: ", &message)
+		slog.InfoContext(ctx, "Received message", slog.Any("message", message))
 
 		err2 := eventServer.NotificationCreateController.Execute(ctx, dto.CreateNotification{
 			OutputMessage: message,
