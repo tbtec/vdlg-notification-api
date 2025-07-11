@@ -22,7 +22,7 @@ func (gtw *NotificationGateway) Send(ctx context.Context, notification entity.No
 	notificationDto := dto.SendNotification{
 		Email:   notification.Email,
 		Message: notification.Message,
-		Status:  "sent",
+		VideoId: notification.VideoId,
 	}
 
 	return gtw.notificationService.Send(ctx, notificationDto)

@@ -43,7 +43,8 @@ func (uc *NotificationCreateUseCase) Execute(ctx context.Context, updateVideo dt
 
 			notification := entity.NewNotification(
 				customer.Email,
-				"Your video processing is complete. Status["+updateVideo.OutputMessage.Status+"]")
+				"Your video processing is complete. Status["+updateVideo.OutputMessage.Status+"]",
+				uc.getVideoId(updateVideo.OutputMessage.FileName))
 
 			uc.notificationGtw.Send(ctx, notification)
 		}
@@ -57,4 +58,11 @@ func (uc *NotificationCreateUseCase) getCustomerId(fileName string) string {
 	file := strings.Split(parts[0], "/")[1]
 
 	return strings.Split(file, "_")[1]
+}
+
+func (uc *NotificationCreateUseCase) getVideoId(fileName string) string {
+	parts := strings.Split(fileName, ".")
+	file := strings.Split(parts[0], "/")[1]
+
+	return strings.Split(file, "_")[0]
 }

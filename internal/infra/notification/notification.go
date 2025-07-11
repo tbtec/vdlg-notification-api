@@ -31,7 +31,7 @@ func (service *NotificationService) Send(ctx context.Context, notification dto.S
 	password := service.Password
 
 	to := []string{notification.Email}
-	subject := "[Video Ligeiro] Processamento de vídeo concluído"
+	subject := "[Video Ligeiro] Video[" + notification.VideoId + "] processing completed"
 	body := notification.Message
 
 	message := []byte("Subject: " + subject + "\r\n" +
