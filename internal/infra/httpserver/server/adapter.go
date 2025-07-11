@@ -19,7 +19,10 @@ func adaptRoute(ctrl httpserver.IController) func(c *fiber.Ctx) error {
 			Params:  getParams(ctx),
 			Query:   getQuery(ctx),
 		}
-		slog.Info("Request receveid:["+request.Host+request.Path+"]", slog.Any("request", string(request.Body)))
+		if request.Path != "/live" {
+			slog.Info("Request receveid:["+request.Host+request.Path+"]", slog.Any("request", string(request.Body)))
+		}
+
 		response := ctrl.Handle(ctx.UserContext(), request)
 
 		return ctx.Status(response.Code).JSON(response.Body)
