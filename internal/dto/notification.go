@@ -8,5 +8,5 @@ type CreateNotification struct {
 type SendNotification struct {
 	Email   string
 	Message string
-	Status  string
+	VideoId string
 }
