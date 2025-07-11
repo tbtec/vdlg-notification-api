@@ -43,7 +43,7 @@ func (uc *NotificationCreateUseCase) Execute(ctx context.Context, updateVideo dt
 
 			notification := entity.NewNotification(
 				customer.Email,
-				"Your video processing is complete. You can access it at")
+				"Your video processing is complete. Status["+updateVideo.OutputMessage.Status+"]")
 
 			uc.notificationGtw.Send(ctx, notification)
 		}
